@@ -1,0 +1,41 @@
+{
+    "name": "shakti-future-testing",
+    "version": "0.0.1",
+    "main": "src/index.js",
+    "author": "Connor Prussin <cprussin@netflix.com>",
+    "private": true,
+    "license": "MIT",
+    "scripts": {
+        "build": "babel src -d build/src && babel config -d build/config",
+        "start": "babel-node ./src/index.js | pino-pretty",
+        "check:lint": "eslint ./{src,config}/**/*.js",
+        "check:flow": "flow check",
+        "check:all": "yarn check:lint && yarn check:flow",
+        "format": "prettier --write './{src,config}/**/*.js'",
+        "test": "jest --testPathIgnorePatterns ./build/*",
+        "clean": "rm -rf build node_modules"
+    },
+    "dependencies": {
+        "pino": "^5.11.1",
+        "react": "^16.8.4",
+        "react-dom": "^16.8.4",
+        "uuid": "^3.3.2"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.2.3",
+        "@babel/core": "^7.3.4",
+        "@babel/node": "^7.2.2",
+        "@babel/preset-env": "^7.3.4",
+        "@babel/preset-flow": "^7.0.0",
+        "@babel/preset-react": "^7.0.0",
+        "babel-eslint": "^10.0.1",
+        "eslint": "^5.15.3",
+        "eslint-config-airbnb-base": "^13.1.0",
+        "eslint-config-prettier": "^4.1.0",
+        "eslint-plugin-flowtype": "^3.4.2",
+        "eslint-plugin-import": "^2.16.0",
+        "jest": "^24.5.0",
+        "pino-pretty": "^2.5.0",
+        "prettier": "^1.16.4"
+    }
+}
